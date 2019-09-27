@@ -1,0 +1,5 @@
+create_table("clicks") {
+	t.Column("id", "uuid", {primary: true})
+	t.Column("link_id", "uuid", {})
+	t.Timestamps()
+}

@@ -1,0 +1,7 @@
+create_table("links") {
+	t.Column("id", "uuid", {primary: true})
+	t.Column("user_id", "uuid", {})
+	t.Column("link", "string", {})
+	t.Column("code", "string", {})
+	t.Timestamps()
+}
