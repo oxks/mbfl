@@ -1,7 +1,7 @@
 # Welcome to Buffalo powered shortlink project!
 
 It's a fork of buff.la updated to recent framework version. 
-It should follows Buffalo install and run procedures. 
+It follows Buffalo standard install and run procedures. 
 
 	$ buffalo db create -a
 	$ buffalo migrate
