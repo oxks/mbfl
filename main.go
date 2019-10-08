@@ -25,7 +25,7 @@ func main() {
 	}
 	runID := time.Now().Format("run-2006-01-02")
 	logLocation := filepath.Join(cwd+"/log/", "."+runID+".json")
-	logFile, err := os.OpenFile(logLocation, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
+	logFile, err := os.OpenFile(logLocation, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0664)
 	if err != nil {
 		log.Fatalf("Failed to open log file %s for output: %s", logLocation, err)
 	}
