@@ -19,9 +19,14 @@ import (
 func init() {
 	gothic.Store = App().SessionStore
 
+	hosterAppHost := App().Host
+	if os.Getenv("HOSTER_APP_HOST") != nil {
+		hosterAppHost = os.Getenv("HOSTER_APP_HOST")
+	}
 	goth.UseProviders(
-		google.New(os.Getenv("GOOGLE_KEY"), os.Getenv("GOOGLE_SECRET"), fmt.Sprintf("%s%s", App().Host, "/auth/google/callback")),
-		github.New(os.Getenv("GITHUB_KEY"), os.Getenv("GITHUB_SECRET"), fmt.Sprintf("%s%s", App().Host, "/auth/github/callback")),
+
+		google.New(os.Getenv("GOOGLE_KEY"), os.Getenv("GOOGLE_SECRET"), fmt.Sprintf("%s%s", hosterAppHost, "/auth/google/callback")),
+		github.New(os.Getenv("GITHUB_KEY"), os.Getenv("GITHUB_SECRET"), fmt.Sprintf("%s%s", hosterAppHost, "/auth/github/callback")),
 	)
 }
 
