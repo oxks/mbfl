@@ -60,7 +60,7 @@ func App() *buffalo.App {
 		app.Use(translations())
 
 		app.GET("/", HomeHandler)
-
+		app.ServeFiles("/", assetsBox) // serve files from the public directory.
 		app.Use(SetCurrentUser)
 		app.Use(Authorize)
 		app.Middleware.Skip(Authorize, HomeHandler, Redirector)
@@ -76,7 +76,7 @@ func App() *buffalo.App {
 		app.GET("/{code:.+}", Redirector)
 
 		auth.Middleware.Skip(Authorize, bah, AuthCallback, Redirector)
-		app.ServeFiles("/", assetsBox) // serve files from the public directory.
+
 	}
 
 	return app
