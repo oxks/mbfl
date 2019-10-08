@@ -20,7 +20,7 @@ func init() {
 	gothic.Store = App().SessionStore
 
 	hosterAppHost := App().Host
-	if os.Getenv("HOSTER_APP_HOST") != nil {
+	if os.Getenv("HOSTER_APP_HOST") != "" {
 		hosterAppHost = os.Getenv("HOSTER_APP_HOST")
 	}
 	goth.UseProviders(
