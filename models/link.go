@@ -45,8 +45,8 @@ func (l *Link) BeforeValidations(tx *pop.Connection) error {
 	h := sha1.New()
 	h.Write(l.UserID.Bytes())
 
-	//h.Write([byte](l.Link))
-	//h.Write([byte](time.Now().String()))
+	h.Write([]byte(l.Link))
+	h.Write([]byte(time.Now().String()))
 	code := fmt.Sprintf("%x", h.Sum(nil))[:7]
 	exists, err := tx.Where("code = ?", code).Exists("links")
 	if err != nil {
