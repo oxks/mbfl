@@ -61,6 +61,7 @@ func App() *buffalo.App {
 
 		app.GET("/", HomeHandler)
 
+		app.ServeFiles("/assets", assetsBox)
 		app.Use(SetCurrentUser)
 		app.Use(Authorize)
 		app.Middleware.Skip(Authorize, HomeHandler, Redirector)
@@ -70,13 +71,14 @@ func App() *buffalo.App {
 		auth.GET("/{provider}", bah)
 		auth.GET("/{provider}/callback", AuthCallback)
 		auth.DELETE("", AuthDestroy)
+		auth.Middleware.Skip(Authorize, bah, AuthCallback)
 
 		app.Resource("/links", LinksResource{})
 
 		app.GET("/{code:.+}", Redirector)
 
-		auth.Middleware.Skip(Authorize, bah, AuthCallback, Redirector)
-		app.ServeFiles("/", assetsBox) // serve files from the public directory.
+		// auth.Middleware.Skip(Authorize, bah, AuthCallback, Redirector)
+		// app.ServeFiles("/", assetsBox) // serve files from the public directory.
 	}
 
 	return app
