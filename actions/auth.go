@@ -65,7 +65,6 @@ func AuthCallback(c buffalo.Context) error {
 }
 
 func AuthDestroy(c buffalo.Context) error {
-	c.Flash().Add("danger", "my destr")
 	c.Session().Clear()
 	c.Flash().Add("success", "You have been logged out")
 	return c.Redirect(302, "/")

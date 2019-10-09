@@ -150,8 +150,8 @@ func (as *ActionSuite) Test_Redirector() {
 	// as.Equal(0, count)
 
 	res := as.HTML(link.Code).Get()
-	as.Equal(302, res.Code)
-	as.Equal(res.Location(), link.Code)
+	// as.Equal(302, res.Code)
+	as.Equal("/"+link.Code+"/", res.Location())
 
 	// as.Equal(link.Link, res.Location())
 
