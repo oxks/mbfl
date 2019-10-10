@@ -1,11 +1,7 @@
 package main
 
 import (
-	"io"
 	"log"
-	"os"
-	"path/filepath"
-	"time"
 
 	"github.com/oxks/mbfl/actions"
 )
@@ -19,19 +15,19 @@ import (
 func main() {
 
 	// log to file
-	cwd, err := os.Getwd()
-	if err != nil {
-		log.Fatalf("Failed to determine working directory: %s", err)
-	}
-	runID := time.Now().Format("run-2006-01-02")
-	logLocation := filepath.Join(cwd+"/log/", "."+runID+".json")
-	logFile, err := os.OpenFile(logLocation, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
-	if err != nil {
-		log.Fatalf("Failed to open log file %s for output: %s", logLocation, err)
-	}
-	log.SetOutput(io.MultiWriter(os.Stderr, logFile))
-	log.Println("testing logn 1")
-	defer logFile.Close()
+	// cwd, err := os.Getwd()
+	// if err != nil {
+	// 	log.Fatalf("Failed to determine working directory: %s", err)
+	// }
+	// runID := time.Now().Format("run-2006-01-02")
+	// logLocation := filepath.Join(cwd+"/log/", "."+runID+".json")
+	// logFile, err := os.OpenFile(logLocation, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0664)
+	// if err != nil {
+	// 	log.Fatalf("Failed to open log file %s for output: %s", logLocation, err)
+	// }
+	// log.SetOutput(io.MultiWriter(os.Stderr, logFile))
+	// log.Println("testing logn 1")
+	// defer logFile.Close()
 
 	// default main function content
 	app := actions.App()

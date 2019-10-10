@@ -20,6 +20,7 @@ func init() {
 	gothic.Store = App().SessionStore
 
 	goth.UseProviders(
+		// other providers supported by Goth can be added here
 		google.New(os.Getenv("GOOGLE_KEY"), os.Getenv("GOOGLE_SECRET"), fmt.Sprintf("%s%s", App().Host, "/auth/google/callback")),
 		github.New(os.Getenv("GITHUB_KEY"), os.Getenv("GITHUB_SECRET"), fmt.Sprintf("%s%s", App().Host, "/auth/github/callback")),
 	)
@@ -60,7 +61,6 @@ func AuthCallback(c buffalo.Context) error {
 }
 
 func AuthDestroy(c buffalo.Context) error {
-	c.Flash().Add("danger", "my destr")
 	c.Session().Clear()
 	c.Flash().Add("success", "You have been logged out")
 	return c.Redirect(302, "/")
