@@ -61,7 +61,7 @@ func App() *buffalo.App {
 
 		app.GET("/", HomeHandler)
 
-		// app.ServeFiles("/", assetsBox) //this brakes routes
+		//app.ServeFiles("/", assetsBox) //this brakes routes
 		app.ServeFiles("/assets", assetsBox)
 
 		app.Use(SetCurrentUser)
