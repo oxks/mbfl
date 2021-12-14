@@ -1,6 +1,6 @@
 # Welcome to Buffalo powered shortlink project!
 
-It's a fork of buff.la updated to recent framework version. 
+It's a fork of buff.la 
 It follows Buffalo standard install and run procedures. 
 
 OAUTH provider's secrets shoud be set for example in the project's root /.env file. 
