@@ -1,7 +1,7 @@
 ---
 development:
   dialect: postgres
-  database: mbfl_development
+  database: dbname
   user: postgres
   password: postgres
   host: 127.0.0.1

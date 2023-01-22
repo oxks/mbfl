@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/gobuffalo/buffalo"
+	"github.com/gobuffalo/nulls"
 	"github.com/gobuffalo/pop"
-	"github.com/gobuffalo/pop/nulls"
 	"github.com/markbates/going/defaults"
 	"github.com/markbates/goth"
 	"github.com/markbates/goth/gothic"

@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"testing"
 
+	"github.com/gobuffalo/nulls"
 	"github.com/gobuffalo/packr/v2"
-	"github.com/gobuffalo/pop/nulls"
 	"github.com/gobuffalo/suite"
 	"github.com/oxks/mbfl/models"
 )
